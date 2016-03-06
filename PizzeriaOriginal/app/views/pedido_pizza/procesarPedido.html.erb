@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Pizzería</title>
+		<h1>Este es el resumen de su pedido</h1>
+		<style type="text/css">
+			table, td{
+				margin-left: 15%;
+				border: 2px solid black;
+				text-align: left;
+				vertical-align: top;
+				border-collapse: collapse;
+				width: 500px;
+				font-family: verdana;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<table>
+			<tbody>
+				<tr>
+					<td>Direccion</td>  <td><%=@cliente.direccion%></td>
+				</tr>
+				<tr>
+					<td>Telefono</td>	<td><%=@cliente.telefono%></td>
+				</tr>
+				<tr>
+					<td>Tamaño</td>		<td><%=@pizza.tamano%></td>
+				</tr>
+				<tr>
+					<td>Ingredientes</td>	<td><%=@pizza.ingredientes%></td>
+				</tr>
+				<tr>
+					<td>Precio</td>		<td><%=@pizza.precio%> €</td>
+				</tr>
+				</tbody>
+		</table>
+	</body>
+</html>

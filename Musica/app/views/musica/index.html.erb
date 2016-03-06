@@ -1,0 +1,42 @@
+<h1>Bienvenido a nuestra tienda de música</h1>
+
+<h3>Estos con los discos existentes</h3>
+<form action="/musica/borrar">
+	<table class="tabla">
+		<tr>
+			<th>Id</th>
+			<th>Titulo</th>
+			<th>Artista</th>
+			<th>Año</th>
+			<th>Modificar</th>
+			<th>Borrar</th>
+		</tr>
+	<%
+		controlFila = 0 
+		for disco in @discos 
+			if controlFila % 2 == 0 then 
+				clase = "impar"
+			else
+				clase = "par"
+			end
+			controlFila +=1
+	%>
+		<tr class= <%=clase%>>	
+			<td><%=disco.id%></td>
+			<td><%=disco.titulo%></td>
+			<td><%=disco.artista%></td>
+			<td><%=disco.anio%></td>
+			<td><a href="/musica/modificar_vista?id=<%=disco.id%>">Modificar disco</a></td>
+			<td><input type="checkbox" name="idBorrar[]" value="<%=disco.id%>"/></td>
+		</tr>	
+	<% 	end %>
+		<tfoot>
+			<td></td>
+			<td><input type="submit" value="Dar de alta" formaction="/musica/alta_vista" /></td>
+			<td></td>
+			<td><input type="submit" value="Buscar" formaction="/musica/busqueda" /></td>
+			<td></td>
+			<td><input type="submit" value="Borrar"/></td>
+		</tfoot>	
+	</table>
+</form>

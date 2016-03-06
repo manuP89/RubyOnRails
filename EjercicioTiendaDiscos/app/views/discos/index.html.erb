@@ -1,0 +1,87 @@
+<style>
+	.par{
+		background-color: #E3F6F4;
+	}
+	
+	.impar{
+		background-color: #A9ECE5;
+	}
+</style>>
+
+<h1>Bienvenidos a nuestra página de discos</h1>
+
+<form action="/discos/borrar">
+<table>
+	<tr>
+		<th>Borrar</th>
+		<th>Nombre</th>
+		<th>Artista</th>
+		<th>Año</th>
+		<th>Modificar</th>
+	</tr>
+	<%
+	discos = Disco.all
+	contador = 0
+	for disco in discos 
+		if contador % 2 == 0 then
+			clase = "par"
+		else
+			clase = "impar"
+		end
+		contador += 1
+	%>
+	<tr class="<%=clase%>">
+		<td><input type="checkbox" name="ids[]" value="<%=disco.id%>"/></td>
+		<td><%=disco.nombre%></td>
+		<td><%=disco.artista%></td>
+		<td><%=disco.anio%></td>
+		<td><a href="/discos/update_mostrar?id=<%=disco.id%>">Modificar</a></td>
+	</tr>
+	<% end %>
+</table>
+<input type="submit" value="borrar">
+</form>
+
+<form>
+	<input type="text" name="nombre" value="<%=@disco.nombre%>"/>
+	<input type="text" name="artista" value="<%=@disco.artista%>"/>
+	<input type="number" name="anio" value="<%=@disco.anio%>"/>
+	<input type="hidden" name="id" value="<%=@disco.id%>"/>
+	<input type="submit" value="alta" formaction="/discos/create">
+	<input type="submit" value="modificar" formaction="/discos/update">
+</form>
+<br>
+<form>
+	<input type="text" name="valor"/><br>
+	<input type="submit" value="Buscar Por año" formaction="/discos/buscar_anio"><br>
+	<input type="submit" value="Buscar Por Artista" formaction="/discos/buscar_artista"><br>
+</form>
+
+<% if @disco != nil && @disco.errors.any? %>
+	<ul>
+		<%@disco.errors.full_messages.each do |mensaje_error| %>
+			<li><%=mensaje_error%></li>
+		<% end%>
+	</ul>
+<% end%>
+
+
+<% if @resultadosBusqueda != nil%>
+
+<table>
+	<tr>
+		<th>Nombre</th>
+		<th>Artista</th>
+		<th>Año</th>
+	</tr>
+	<%
+	for disco in  @resultadosBusqueda
+	%>
+	<tr>
+		<td><%=disco.nombre%></td>
+		<td><%=disco.artista%></td>
+		<td><%=disco.anio%></td>
+	</tr>
+	<% end %>
+</table>
+<% end %>

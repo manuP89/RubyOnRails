@@ -1,0 +1,11 @@
+
+<%= 
+	 variable_label = "Route"
+	 variable_accion =  @accion
+	 variable_submit =  "Ir a"
+
+%>
+
+<%= render partial: "template_formulario",
+	locals:{label: variable_label, accion: variable_accion, nombreSubmit: variable_submit}
+ %>

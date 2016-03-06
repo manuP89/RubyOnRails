@@ -1,0 +1,62 @@
+// Place all the styles related to the Musica controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.tabla .impar {
+  background-color: #EDC9CC;
+}
+
+.tabla .par {
+  background-color: #CDC2C4;
+}
+
+.tabla {
+  font-family: Calibri;
+  border: 1px solid;
+  border-collapse: collapse; 
+  text-align: center; 
+  margin-top: 10px; 
+  width: 50%;
+  margin: 0 auto; 
+}
+
+.tabla td {
+  border: 1px solid;
+  border-collapse: collapse; 
+}
+
+.tabla th {
+  border: 1px solid;
+  border-collapse: collapse;
+  background-color: #6A8085; 
+}
+
+.tabla tfoot {
+  border: 1px solid;
+  border-collapse: collapse;
+  background-color: #E7EAE4;
+}
+
+.dcha {
+  font-weight: bold;
+  color: blue;
+  text-align: right;
+  margin: 10px;
+}
+
+.izq {
+  font-style: italic;
+  text-align: left;
+  padding-right: 3px;
+  width: 50px;
+}
+
+.boton {
+  text-align: center;
+}
+
+li {
+  color: red;
+  font-weight: bold;
+  font-style: italic;
+}

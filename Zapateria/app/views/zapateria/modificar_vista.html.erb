@@ -1,0 +1,11 @@
+<h1>Página de modificación</h1>
+
+<form action="/zapateria/modificar">
+	<input type="hidden" name="id" value="<%=@zapato.id%>"/>
+	<label>Tipo:</label><input type="text" name="tipo" value="<%=@zapato.tipo%>"/><br>
+	<label>Color:</label><input type="text" name="color" value="<%=@zapato.color%>"/><br>
+	<label>Talla:</label><input type="number" name="talla" value="<%=@zapato.talla%>"/><br>
+	<input type="submit" name="modificar" value="Modificar"/>
+</form>
+<br>
+<a href="/zapateria/index">Volver</a>

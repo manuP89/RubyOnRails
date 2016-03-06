@@ -1,0 +1,14 @@
+
+<h2>Modificar registro</h2>
+
+<%= form_for @registro,method: :post, url: {action: "modificar"} do |formulario| %>
+	Titulo: <br><%= formulario.text_field :titulo %><br />
+	Comentarios: <br><%= formulario.text_area :comentarios%>
+	<%= hidden_field_tag 'tituloBorrar', @registro.titulo  %>
+	<br>
+	<!-- Arriba llegara un parametro de la forma  "commit"=>"Crear"  
+		de esta manera podemos diferenciar si queremos hacer un delete
+		o un update
+		-->
+	<%= formulario.submit "Modificar"%>
+<%end%>

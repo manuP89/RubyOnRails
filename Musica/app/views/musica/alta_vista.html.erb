@@ -1,0 +1,30 @@
+<h1>Página de alta</h1>
+<form action="/musica/alta">
+	<table>
+		<tr>
+			<td class="izq"><label>Titulo:</label></td>
+			<td class="dcha"><input type="text" name="titulo"/></td>
+		</tr>
+		<tr>
+			<td class="izq"><label>Artista:</label></td>
+			<td class="dcha"><input type="text" name="artista"/></td>
+		</tr>
+		<tr>
+			<td class="izq"><label>Año:</label></td>
+			<td class="dcha"><input type="number" name="anio"/></td>
+		</tr>
+		<tr>
+			<td class="boton"><input type="submit" value="Volver" formaction="/musica/index"/></td>
+			<td class="boton"><input type="submit" name="alta" value="Crear"/></td>
+		</tr>
+	</table>
+</form>
+
+<% if @disco != nil && @disco.errors.any? %>
+	<ul>
+		<% @disco.errors.full_messages.each do |mensajeError| %>
+			<li><%=mensajeError%></li>
+		<% end %>
+	</ul>
+<% end %>
+

@@ -1,0 +1,50 @@
+<h3>Página de búsqueda</h3>
+<form action="/musica/buscar">
+	<table>
+		<tr>
+			<td class="izq"><label name="artista">Artista:</label></td>
+			<td class="dcha"><input type="text" name="artista"/></td>
+			<td><input type="submit" value="Buscar por artista" formaction="/musica/buscar_artista"/></td>
+		</tr>
+		<tr>
+			<td class="izq"><label name="anio">Año:</label></td>
+			<td class="dcha"><input type="number" name="anio" /></td>
+			<td><input type="submit" value="Buscar por año" formaction="/musica/buscar_anio"/></td>
+		</tr>
+		<tr>
+			<td class="boton"><input type="submit" value="Volver" formaction="/musica/index" /></td>
+			<td></td>
+			<td class="boton"><input type="submit" value="Buscar" /></td>
+		</tr>
+	</table>
+</form>
+
+<% if @discosEncontrados != nil %>
+	<table class="tabla">
+		<tr>
+			<th>Id</th>
+			<th>Titulo</th>
+			<th>Artista</th>
+			<th>Año</th>
+		</tr>
+		<% controlFila = false %>
+		<% for disco in @discosEncontrados %>
+			<% if controlFila == false then %>
+		<tr class="impar">
+			<td><%= disco.id %></td>
+			<td><%= disco.titulo %></td>
+			<td><%= disco.artista %></td>
+			<td><%= disco.anio %></td>
+		</tr>
+				<% controlFila = true %>
+			<% elsif controlFila == true then %>
+		<tr class="par">
+			<td><%= disco.id %></td>
+			<td><%= disco.titulo %></td>
+			<td><%= disco.artista %></td>
+			<td><%= disco.anio %></td>
+		</tr>
+			<% end %>	
+		<% end %>
+	</table>
+<% end %>

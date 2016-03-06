@@ -1,0 +1,21 @@
+<h1>Modificar cliente</h1>
+<h4>Modifique los datos que desee cambiar</h4>
+<form action="/AltaCliente/modificar"method="get">
+	<input type="hidden" name="id" value="<%=@cliente.id%>"/>
+	<table>
+		<tr>
+			<td class="dcha">Nombre:</td><td><input type="text" name="nombre" value="<%=@cliente.nombre%>"/></td>
+		</tr>
+		<tr>
+			<td class="dcha">Apellido:</td><td><input type="text" name="apellidos" value="<%=@cliente.apellidos%>"/></td>
+		</tr>
+		<tr>
+			<td class="dcha">Edad:</td><td><input type="number" name="edad" value="<%=@cliente.edad%>"/></td>
+		</tr>
+		<tr>
+			<td class="dcha">Telefono:</td><td><input type="text" name="telefono" value="<%=@cliente.telefono%>"/></td>
+		</tr>
+	</table>
+	<input type="submit" value="Guardar"/>
+</form><br>
+<a href="/AltaCliente/index">Volver</a>

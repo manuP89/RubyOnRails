@@ -1,0 +1,41 @@
+<h1>Lista de registros</h1>
+<table>
+	<tr><td>Titulo</td><td>Comentarios</td></tr>
+<% for registro in @registros do %>
+	<tr>
+		<td><%=registro.titulo%></td>
+		<td><%=registro.comentarios%></td>
+		<td><a href="/registro/borrar?titulo=<%=registro.titulo%>">borrar</a></td>
+		<td><a href="/registro/modificar_vista?titulo=<%=registro.titulo%>">modificar</a></td>
+	</tr>
+<% end %>
+</table>
+<br />
+Nuevo registro:<br />
+<!-- Para que @registro funcione, debemos de tener creado un objeto 
+	es decir, no puede ser nil, ya que aqui se guardaran los datos que
+	introduzca el usuario. 
+	Por eso en el metodo new del controller
+	hacemos un Registro.new
+	-->
+<%= form_for @registro,method: :post, url: {action: "create"} do |formulario| %>
+	Titulo: <br><%= formulario.text_field :titulo %><br />
+	Comentarios: <br><%= formulario.text_area :comentarios%>
+	<br>
+	<!-- Arriba llegara un parametro de la forma  "commit"=>"Crear"  
+		de esta manera podemos diferenciar si queremos hacer un delete
+		o un update
+		-->
+	<%= formulario.submit "Crear"%>
+<%end%>
+
+<% if @registro != nil && @registro.errors.any? %>
+<ul>
+      <% @registro.errors.full_messages.each do |mensaje_error| %>
+        <li><%= mensaje_error %></li>
+      <% end %>
+</ul>
+<%end%>
+
+<br>
+<%= Rails.env %>

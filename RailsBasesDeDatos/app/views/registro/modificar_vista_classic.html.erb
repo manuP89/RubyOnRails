@@ -1,0 +1,16 @@
+
+<h2>Modificar registro</h2>
+<form action="/registro/modificar_classic">
+	<input type="text" name="titulo" value="<%=@registro.titulo%>"/><br>
+	<textarea rows="4" cols="25" name="comentarios"><%=@registro.comentarios%></textarea><br>
+	<input type="hidden" name="id" value="<%=@registro.id%>"/><br>
+	<input type="submit" name="modificar_registro" value="Modificar">	
+</form>
+
+<% if @registro != nil && @registro.errors.any? %>
+<ul>
+      <% @registro.errors.full_messages.each do |mensaje_error| %>
+        <li><%= mensaje_error %></li>
+      <% end %>
+</ul>
+<%end%>

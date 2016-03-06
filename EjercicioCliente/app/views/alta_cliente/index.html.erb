@@ -1,0 +1,46 @@
+<h1>Bienvenido a nuestra aplicación de alta de clientes</h1>
+<h4>Dese de alta en esta página</h4>
+<form method="get">
+	<table>
+		<tr>
+			<td class="dcha">Nombre: </td><td><input type="text" name="nombre" placeholder="Introduzca su nombre"/></td>
+		</tr>
+		<tr>
+			<td class="dcha">Apellido: </td><td><input type="text" name="apellidos" placeholder="Introduzca sus apellidos"/></td>
+		</tr>
+		<tr>
+			<td class="dcha">Edad: </td><td><input type="number" name="edad" placeholder="Introduzca su edad"/></td>
+		</tr>
+		<tr>
+			<td class="dcha">Telefono: </td><td><input type="text" name="telefono" placeholder="Introduzca su teléfono"/></td>
+		</tr>
+	</table>
+	<input type="submit" value="Alta" formaction="/AltaCliente/altaCliente"/>
+	
+	
+	<table class="tabla">
+		<tr>
+			<th>Nombre</th> <th>Apellidos</th> <th>Edad</th> <th>Detalle</th>  <th>Borrar</th>  <th>Modificar</th>
+		</tr>
+<%
+		#if @bandera == true
+		if @clientes != nil
+			for cliente in @clientes		
+%>
+		<tr>
+			<td><%=cliente.nombre%></td>
+			<td><%=cliente.apellidos%></td>
+			<td><%=cliente.edad%></td>
+			<td><a href="/AltaCliente/detalle?id=<%=cliente.id%>&fin=detalle">Detalle cliente</a></td>
+			<td><a href="/AltaCliente/borrar?id=<%=cliente.id%>">Borrar cliente</a></td>
+			<td><a href="/AltaCliente/detalle?id=<%=cliente.id%>&fin=modificar">Modificar cliente</a></td>
+		</tr>
+<%
+			end
+		end
+%>
+	</table>
+</form>
+
+
+

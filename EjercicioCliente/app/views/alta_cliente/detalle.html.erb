@@ -1,0 +1,24 @@
+<h1>Detalle del cliente</h1>
+<div>
+	<table>
+		<tr>
+			<td class="dcha">Id:</td><td class="izq"><%=@cliente.id%></td>
+		</tr>
+		<tr>
+			<td class="dcha">Nombre:</td><td class="izq"><%=@cliente.nombre%></td>
+		</tr>
+		<tr>
+			<td class="dcha">Apellidos:</td><td class="izq"><%=@cliente.apellidos%></td>
+		</tr>
+		<tr>
+			<td class="dcha">Edad:</td><td class="izq"><%=@cliente.edad%></td>
+		</tr>
+		<tr>
+			<td class="dcha">Teléfono:</td><td class="izq"><%=@cliente.telefono%></td>
+		</tr>
+	</table>
+</div>
+
+<a href="/AltaCliente/index">Volver</a>
+<a href="/AltaCliente/borrar?id=<%=@cliente.id%>">Borrar cliente</a>
+<a href="/AltaCliente/modificar?id=<%=@cliente.id%>">Modificar cliente</a>

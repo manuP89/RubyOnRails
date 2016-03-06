@@ -1,0 +1,60 @@
+// Place all the styles related to the AltaCliente controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+* {
+  margin-left: 5px;
+}
+
+body {
+  background-image: url('patron6.jpg')
+}
+
+table {
+  margin: 5px;
+}
+
+.tabla {
+  font-family: Calibri;
+  border: 1px solid;
+  border-collapse: collapse; 
+  text-align: center; 
+  margin-top: 10px; 
+  width: 50%;
+  margin: 0 auto; 
+}
+
+.tabla td {
+  border: 1px solid;
+  border-collapse: collapse; 
+  background-color: #FFEEDE;
+}
+
+.tabla th {
+  border: 1px solid;
+  border-collapse: collapse;
+  background-color: #9ADD98; 
+}
+
+.dcha {
+  font-weight: bold;
+  color: blue;
+  text-align: right;
+  margin: 10px;
+}
+
+.izq {
+  font-style: italic;
+  text-align: left;
+  padding-right: 3px;
+}
+
+h1 {
+  margin: 0 auto;
+}
+
+h4 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #002201;
+}

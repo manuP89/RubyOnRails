@@ -1,0 +1,25 @@
+<a href="/cliente/alta">Dar de alta</a>
+<a href="/cliente/borrar">Borrar</a>
+
+<h1>Clientes</h1>
+<% 
+  clientes = Cliente.all
+   for cliente in clientes
+%>
+<%=cliente.nombre%><br>
+<% 
+	for factura in cliente.facturas
+%>
+	
+	-- <%=factura.descripcion%>: <%=factura.valor%><br>
+<% 	end%>
+<% end%>
+
+
+<h2>Todas las facturas</h2>
+<% 
+	facturas = Factura.all
+	for factura in facturas
+%>
+	--<%=factura.id%>: <%=factura.cliente_id%>: <%=factura.descripcion%>: <%=factura.valor%>  <br>
+<% end%>

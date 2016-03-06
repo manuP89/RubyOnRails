@@ -1,0 +1,39 @@
+<h1>Lista de registros</h1>
+<table>
+	<tr><td>Titulo</td><td>Comentarios</td></tr>
+<% 
+	registros = Registro.all
+	for registro in registros do 
+%>
+	<tr>
+	<td><%=registro.titulo%></td>
+	<td><%=registro.comentarios%></td>
+	<td><a href="/registro/borrar_classic?id=<%=registro.id%>">borrar</a></td>
+	<td><a href="/registro/modificar_vista_classic?id=<%=registro.id%>">modificar</a></td>
+</tr>
+
+<% end %>
+</table>
+<br />
+Nuevo registro:<br />
+<form action="/registro/create_classic">
+	Titulo:<br>
+	<input type="text" name="titulo"/><br>
+	Comentarios:<br>
+	<textarea rows="4" cols="25" name="comentarios"></textarea><br>
+	<input type="submit" name="crear_registro" value="Create">	
+</form>
+
+<a href="/registro/busquedas_classic">Ir a busquedas</a>
+<% if @registro != nil && @registro.errors.any? %>
+<ul>
+      <% @registro.errors.full_messages.each do |mensaje_error| %>
+        <li><%= mensaje_error %></li>
+      <% end %>
+</ul>
+<%end%>
+<br>
+<%
+	#probar a lanzar antes el comando rake db:migrate RAILS_ENV=test
+	#para cambiar de entorno 'RAILS_ENV=test rails s' para ejecutar el servidor%>
+Entorno: <%= Rails.env %>

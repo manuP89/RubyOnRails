@@ -1,0 +1,18 @@
+<form action="/registro/buscar_por_titulo_classic">
+	Buscar por titulo:<br/>
+	<input type="text" name="titulo"/><br/>
+	<input type="submit" value="buscar">
+</form>
+
+<% if @registrosEncontrados != nil %>
+
+	<table>
+		<tr><td>Titulo</td><td>Comentarios</td></tr>
+	<% for registro in @registrosEncontrados do %>
+		<tr>
+			<td><%=registro.titulo%></td>
+			<td><%=registro.comentarios%></td>
+		</tr>
+	<% end %>
+	</table>
+<% end %>

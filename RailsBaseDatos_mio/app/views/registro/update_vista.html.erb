@@ -1,0 +1,28 @@
+<h1>Página de modificación</h1>
+
+<%= form_tag({controller: "registro", action: "update"}, method: "get") do %>
+<table class="formulario">
+	<tr>
+		<td class="izq"><%= label_tag(:id, "Id:") %></td>
+		<td class="dcha"><%= text_field_tag(:id, @registro.id, :readonly => true) %></td>
+	</tr>
+	<tr>
+		<td class="izq"><%= label_tag(:titulo, "Titulo:") %></td>
+		<td class="dcha"><%= text_field_tag(:titulo, @registro.titulo) %></td>
+	</tr>
+	<tr>
+		<td class="izq"><%= label_tag(:comentarios, "Escribe el comentario:") %></td>
+		<td class="dcha"><%= text_field_tag(:comentarios, @registro.comentarios) %></td>
+	</tr>	
+</table>
+	<!-- <%= hidden_field_tag(:id, @registro.id) %> -->
+	<%= submit_tag("Modificar")%>	
+<% end %>
+
+<% if @registro != nil && @registro.errors.any? %>
+	<ul>
+		<% @registro.errors.full_messages.each do |mensajeError| %>
+			<li><%=mensajeError%></li>
+		<% end %>
+	</ul>
+<% end %>

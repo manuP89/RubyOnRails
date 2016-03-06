@@ -1,0 +1,31 @@
+
+  <%= 
+    	variable_enlace1 = "EjercicioTemplates/formMostrar"
+    	variable_enlace2 = "EjercicioTemplates/route"
+    	variable_nombre1 = "Mostrar"
+    	variable_nombre2 = "Route"
+    
+    %>
+    	
+	
+	<%= 
+	
+	render partial: "template_enlace",
+	locals:{enlace: variable_enlace1, nombreEnlace: variable_nombre1}
+	
+	%>
+	
+	<br />
+	
+	<%= 
+	
+	render partial: "template_enlace",
+	locals:{enlace: variable_enlace2, nombreEnlace: variable_nombre2}
+	
+	%>
+	
+
+
+  
+  
+  

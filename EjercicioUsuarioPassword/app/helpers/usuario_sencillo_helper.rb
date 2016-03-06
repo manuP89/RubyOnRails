@@ -1,0 +1,2 @@
+module UsuarioSencilloHelper
+end

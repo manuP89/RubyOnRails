@@ -1,0 +1,18 @@
+
+<h1>Página login</h1>
+
+<form action="/UsuarioSencillo/validar">
+	Nombre: <input type="text" name="user">
+	Password: <input type="password" name="password">
+	<input type="submit" value="Enviar">
+<form>
+	
+	<!--con '<% %>' podemos escribir codigo ruby sobre el html-->
+	<% if @bandera = true %>
+		<h3 style="color:red"><%=@usuarioValido%></h3>
+	<% end %>
+	
+		
+<a href="/UsuarioSencillo/indexAlta">Ir a Alta</a>
+	
+

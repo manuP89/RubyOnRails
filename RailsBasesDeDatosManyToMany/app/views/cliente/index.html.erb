@@ -1,0 +1,28 @@
+<a href="/cliente/alta">Dar de alta</a>
+
+<h1>Clientes</h1>
+<% 
+  clientes = Cliente.all
+   for cliente in clientes
+%>
+<%=cliente.nombre%><br>
+<% 
+	for comercial in cliente.comercials
+%>
+	-- <%=comercial.nombre%>: <%=comercial.salario%><br>
+<% 	end%>
+<% end%>
+
+
+<h1>Comerciales</h1>
+<% 
+   comercials = Comercial.all
+   for comercial in comercials
+%>
+<%=comercial.nombre%>: <%=comercial.salario%><br>
+<% 
+	for cliente in comercial.clientes
+%>
+	-- <%=cliente.nombre%>: <%=cliente.apellidos%><br>
+<% 	end%>
+<% end%>

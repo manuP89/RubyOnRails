@@ -1,0 +1,133 @@
+<h1 class="encabezado">Bienvenido a nuestra Librería</h1>
+
+<% if @libro != nil && @libro.errors.any? %>
+	<ul>
+		<%@libro.errors.full_messages.each do |mensaje_error| %>
+			<li><%=mensaje_error%></li>
+		<% end%>
+	</ul>
+<% end%>
+
+<h3 class="encabezado">Estos con los libros existentes</h3>
+<form action="/libreria/delete">
+	<table class="tabla">
+		<tr>
+			<th>Id</th>
+			<th>Titulo</th>
+			<th>Autor</th>
+			<th>Género</th>
+			<th>Modificar</th>
+			<th>Borrar</th>
+		</tr>
+	<%
+		libros = Libro.all	
+		controlFila = 0 
+		for libro in libros
+			if controlFila % 2 == 0 then 
+				clase = "impar"
+			else
+				clase = "par"
+			end
+			controlFila +=1
+	%>
+		<tr class= <%=clase%>>	
+			<td><%=libro.id%></td>
+			<td><%=libro.titulo%></td>
+			<td><%=libro.autor%></td>
+			<td><%=libro.genero%></td>
+			<td><a href="/libreria/update_mostrar?id=<%=libro.id%>">Cargar libro</a></td>
+			<td><input type="checkbox" name="idBorrar[]" value="<%=libro.id%>"/></td>
+		</tr>	
+	<% 	end %>
+		<tfoot>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td><input type="submit" value="Borrar"/></td>
+		</tfoot>	
+	</table>
+</form>
+
+<section class="formAlta">
+	<h3>Formulario para dar de alta un libro:</h3>
+	<p>Sobre este formulario también se modificará el libro seleccionado en la tabla.</p>
+	<form action="/libreria/create">
+		<input type="hidden" name="id" value="<%=@libro.id%>" />
+		<table>
+			<tr>
+				<td class="izq"><label>Titulo:</label></td>
+				<td class="dcha"><input type="text" name="titulo" value="<%=@libro.titulo%>"/></td>
+			</tr>
+			<tr>
+				<td class="izq"><label>Autor:</label></td>
+				<td class="dcha"><input type="text" name="autor" value="<%=@libro.autor%>"/></td>
+			</tr>
+			<tr>
+				<td class="izq"><label>Género:</label></td>
+				<td class="dcha"><input type="text" name="genero" value="<%=@libro.genero%>"/></td>
+			</tr>
+			<tr>
+				<td class="boton"><input type="submit" name="create" value="Crear"/></td>
+				<td class="boton"><input type="submit" name="update" value="Modificar" formaction="/libreria/update"/></td>
+			</tr>
+		</table>
+	</form>
+</section>
+
+<section class="formBuscar">
+	<h3>Formulario para buscar un libro:</h3>
+	<p>La búsqueda se puede realizar especificando cualquiera de los campos</p>
+	<form action="/libreria/search">
+		<table>
+			<tr>
+				<td class="izq"><label>Titulo:</label></td>
+				<td class="dcha"><input type="text" name="titulo" /></td>
+				<td><input type="submit" name="searchTitle" value="Buscar por título" formaction="/libreria/search_title" /></td>
+			</tr>
+			<tr>
+				<td class="izq"><label>Autor:</label></td>
+				<td class="dcha"><input type="text" name="autor" /></td>
+				<td><input type="submit" name="searchAuthor" value="Buscar por autor" formaction="/libreria/search_author" /></td>
+			</tr>
+			<tr>
+				<td class="izq"><label>Género:</label></td>
+				<td class="dcha"><input type="text" name="genero" /></td>
+				<td><input type="submit" name="searchGenero" value="Buscar por género" formaction="/libreria/search_genero" /></td>
+			</tr>
+			<tr>
+				<td class="boton" colspan="3"><input type="submit" name="search" value="Buscar" /></td>
+			</tr>
+		</table>
+	</form>
+</section>
+
+<% if @librosEncontrados != nil%>
+
+<table class="tabla" id="tablaBuscar">
+	<tr>
+		<th>Id</th>
+		<th>Titulo</th>
+		<th>Autor</th>
+		<th>Género</th>
+	</tr>
+<%
+	for libro in  @librosEncontrados
+		if controlFila % 2 == 0 then 
+				clase = "impar2"
+			else
+				clase = "par2"
+			end
+			controlFila +=1
+%>
+	<tr class= <%=clase%>>
+		<td><%=libro.id%></td>
+		<td><%=libro.titulo%></td>
+		<td><%=libro.autor%></td>
+		<td><%=libro.genero%></td>
+	</tr>
+	<% end %>
+</table>
+<% end %>
+

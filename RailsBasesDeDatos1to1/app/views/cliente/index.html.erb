@@ -1,0 +1,20 @@
+
+<a href="/cliente/crear">Dar de alta</a>
+<a href="/cliente/borrar">Borrar el primero</a>
+
+<h1>Clientes</h1>
+<% 
+clientes = Cliente.all
+for cliente in clientes
+%>
+	<%=cliente.nombre%>;<%=cliente.direccion.nombre_via%> <br>
+<% end%>
+
+<h3>Desde dirección tambien vemos cliente</h3>
+<% 
+direcciones = Direccion.all
+for direccion in direcciones
+%>
+	<%=direccion.nombre_via%>;<%=direccion.cliente.nombre%> <br>
+<% end%>
+%>

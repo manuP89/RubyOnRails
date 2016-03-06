@@ -1,0 +1,17 @@
+# Read about fixtures ats http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+#para crear objetos de manera rapida, tipo mock
+
+registro_bueno:
+  titulo: Titulo 1
+  comentarios: Comentario 1
+
+comentario_malo:
+  titulo: Titulo 2
+  comentarios: com
+  
+titulo_vacio:
+  comentarios: comentarios
+    
+
+

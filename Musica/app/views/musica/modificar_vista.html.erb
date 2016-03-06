@@ -1,0 +1,31 @@
+<h1>Página de modificación</h1>
+<form action="/musica/modificar">
+	<table>
+		<input type="hidden" name="id" value="<%=@disco.id%>"/>
+		<tr>
+			<td class="izq"><label>Titulo:</label></td>
+			<td class="dcha"><input type="text" name="titulo" value="<%=@disco.titulo%>"/></td>
+		</tr>
+		<tr>
+			<td class="izq"><label>Artista:</label></td>
+			<td class="dcha"><input type="text" name="artista" value="<%=@disco.artista%>"/></td>
+		</tr>
+		<tr>
+			<td class="izq"><label>Año:</label></td>
+			<td class="dcha"><input type="number" name="anio" value="<%=@disco.anio%>"/></td>
+		</tr>
+		<tr>
+			<td><input type="submit" name="volver" value="Volver" formaction="/musica/index" /></td>
+			<td><input type="submit" name="modificar" value="Modificar" /></td>
+		</tr>
+	</table>
+</form>
+
+<% if @disco != nil && @disco.errors.any? %>
+	<ul>
+		<% @disco.errors.full_messages.each do |mensajeError| %>
+			<li><%=mensajeError%></li>
+		<% end %>
+	</ul>
+<% end %>
+

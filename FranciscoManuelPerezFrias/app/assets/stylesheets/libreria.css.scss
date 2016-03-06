@@ -1,0 +1,99 @@
+// Place all the styles related to the libreria controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  background-color: #F5F6CE;
+}
+
+.tabla .impar {
+  background-color: #F5D0A9;
+}
+
+.tabla .par {
+  background-color: #FAAC58;
+}
+
+.tabla {
+  font-family: Calibri;
+  border: 1px solid;
+  border-collapse: collapse; 
+  text-align: center; 
+  margin-top: 10px; 
+  width: 70%;
+  margin: 0 auto; 
+}
+
+.tabla td {
+  border: 1px solid;
+  border-collapse: collapse; 
+}
+
+.tabla th {
+  border: 1px solid;
+  border-collapse: collapse;
+  background-color: #E6E6E6; 
+}
+
+.tabla tfoot {
+  border: 1px solid;
+  border-collapse: collapse;
+  background-color: #E7EAE4;
+}
+
+.dcha {
+  font-weight: bold;
+  color: blue;
+  text-align: right;
+  margin: 10px;
+}
+
+.izq {
+  font-style: italic;
+  text-align: left;
+  padding-right: 3px;
+  width: 50px;
+}
+
+.boton {
+  text-align: center;
+}
+
+li {
+  color: red;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.impar2 {
+  background-color: #E0F2F7;
+}
+
+.par2 {
+  background-color: #A9E2F3;
+}
+
+.formAlta {
+  margin-left: 15%;
+  float: left;
+}
+
+.formBuscar {
+  margin-right: 10%;
+  margin-bottom: 50px;
+  float: right;
+}
+
+#tablaBuscar {
+  clear: both;
+}
+
+.tablaLibros {
+  margin: 0 auto;
+}
+
+.encabezado {
+  margin: 0 auto;
+  text-align: center;
+  padding: 10px;
+}

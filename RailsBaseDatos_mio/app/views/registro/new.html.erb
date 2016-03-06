@@ -1,0 +1,45 @@
+<h1>Lista de registros</h1>
+<table class="tabla">
+	<tr>
+		<th>Id</th>
+		<th>Titulo</th>
+		<th>Comentarios</th>
+		<th>Borrar</th>
+		<th>Modificar</th>
+	</tr>
+<% for registro in @registros %>
+	<tr>
+		<td><%=registro.id%></td>
+		<td><%=registro.titulo%></td>
+		<td><%=registro.comentarios%></td>
+		<td><a href="/registro/delete?titulo=<%=registro.titulo%>">Borrar</a></td>
+		<td><a href="/registro/update_vista?id=<%=registro.id%>">Modificar</a></td>
+	</tr>
+<% end %>
+</table>
+
+<%= form_tag({controller: "registro", action: "create"}, method: "get") do %>
+<table class="formulario">
+	<tr>
+		<td class="izq"><%= label_tag(:titulo, "Titulo:") %></td>
+		<td class="dcha"><%= text_field_tag(:titulo, nil, placeholder: "Introduzca el título") %></td>
+	</tr>
+	<tr>
+		<td class="izq"><%= label_tag(:comentarios, "Comentarios:") %></td>
+		<td class="dcha"><%= text_field_tag(:comentarios, nil, placeholder:'Escribe el comentario') %></td>
+	</tr>	
+</table>
+	<%= submit_tag("Crear")%>	
+<% end %>
+
+<a href="/registro/searchs">Busquedas</a>
+
+<% if @registro != nil && @registro.errors.any? %>
+	<ul>
+		<% @registro.errors.full_messages.each do |mensajeError| %>
+			<li><%=mensajeError%></li>
+		<% end %>
+	</ul>
+<% end %>
+
+

@@ -1,0 +1,33 @@
+<h1>Bienvenido a nuestra Pizzeria</h1>
+<p>Aqui puede realizar su pedido:</p>
+<form metod="get">
+	Direccion: <input type="text" name="direccion"/><br>
+	Telefono: <input type="text" name="telefono"/><br>
+	<div>Tamano:
+		<select name="tamano">
+			<option value="peque">Pequena</option>
+			<option value="mediana">Mediana</option>
+			<option value="grande">Grande</option>
+		</select>
+	</div>
+	
+	<div>Ingredientes:<br>
+		<input type="checkbox" name="ingredientes[]" value="mozarrella">Mozarrella<br>
+		<input type="checkbox" name="ingredientes[]" value="tomate">Tomate<br>
+		<input type="checkbox" name="ingredientes[]" value="jamon">Jamon<br>
+		<input type="checkbox" name="ingredientes[]" value="atun">Atun<br>
+		<input type="checkbox" name="ingredientes[]" value="pepperoni">Pepperoni<br>
+	</div>
+						
+	<br><input type="submit" value="Enviar" formaction="procesarPedido"/>
+		<input type="submit" value="Añadir pizza" formaction="/PedidoPizza/addPizza"/>
+</form>
+	
+<% 
+	if @bandera == true 
+%>
+		<h3 style="color:red">Pizza añadida al pedido</h3>
+		<%=@nuevaPizza%>
+<% 	
+	end 
+%>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+	<head>
+		<title>Pizzería</title>
+		<h1>Bienvenido a nuestra Pizzeria</h1>
+	</head>
+	
+	<body>
+		<p>Aqui puede realizar su pedido:</p>
+		<form action="procesarPedido" metod="get">
+			Direccion: <input type="text" name="direccion"/><br>
+			Telefono: <input type="text" name="telefono"/><br>
+			<div>Tamano:
+				<select name="tamano">
+					<option value="peque">Pequena</option>
+					<option value="mediana">Mediana</option>
+					<option value="grande">Grande</option>
+				</select>
+			</div>
+			
+			<div>Ingredientes:<br>
+				<input type="checkbox" name="ingredientes[]" value="mozarrella">Mozarrella<br>
+  				<input type="checkbox" name="ingredientes[]" value="tomate">Tomate<br>
+  				<input type="checkbox" name="ingredientes[]" value="jamon">Jamon<br>
+  				<input type="checkbox" name="ingredientes[]" value="atun">Atun<br>
+  				<input type="checkbox" name="ingredientes[]" value="pepperoni">Pepperoni<br>
+			</div>
+						
+			<br><input type="submit" value="Enviar"/>
+		</form>
+		
+	</body>
+
+</html>

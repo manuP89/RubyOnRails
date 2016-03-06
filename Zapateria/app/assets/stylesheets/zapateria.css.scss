@@ -1,0 +1,26 @@
+// Place all the styles related to the zapateria controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.tabla {
+  font-family: Calibri;
+  border: 1px solid;
+  border-collapse: collapse; 
+  text-align: center; 
+  margin-top: 10px; 
+  width: 50%;
+  margin: 0 auto; 
+}
+
+.tabla td {
+  border: 1px solid;
+  border-collapse: collapse; 
+  background-color: #FFEEDE;
+}
+
+.tabla th {
+  border: 1px solid;
+  border-collapse: collapse;
+  background-color: #9ADD98; 
+}

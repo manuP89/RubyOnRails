@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+	<head>
+		<title>Calculadora</title>
+		<h1>Bienvenido a nuestra calculadora:</h1>
+	</head>
+	
+	<body>
+		
+		<form action="/Calculadora/resultado" metod="get">
+			Operando 1: <input type="number" name="val1"/><br>
+			Operando 2: <input type="number" name="val2"/><br>
+			
+			<select name="operaciones" multiple>
+				<option value="suma">+</option>
+				<option value="resta">-</option>
+				<option value="multiplicacion">*</option>
+				<option value="division">/</option>
+			</select>
+			
+			<br><input type="submit" value="Enviar"/>
+		</form>
+		
+	</body>
+
+</html>

@@ -1,0 +1,23 @@
+<h1 style="color: red"> Este sería nuestro contenido principal</h1>
+<%=render "template_enlace" %> <br>
+<%=render "template_enlace" %>
+
+<%
+		variable_enlace = "http://www.google.es"
+		variable_mostrar = "Google"
+
+%>
+
+<br/>
+<%=  render partial: "template_enlace_dinamico",
+	locals:{direccionWeb: variable_enlace, direccionMostrar: variable_mostrar}
+%>
+
+<br/>
+
+<%=  render partial: "template_enlace_dinamico",
+	locals:{direccionWeb: @enlace, direccionMostrar: @literal}
+%>
+
+
+
